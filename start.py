@@ -23,7 +23,7 @@ while True:
     availableStores = []
     for store in data['body']['stores']:
       status = store["partsAvailability"]["MN5L2LL/A"]["storePickupQuote"]
-      if status == "Currently unavailable":
+      if status != "Currently unavailable":
         availableStores.append({
           "name": store["storeName"],
           "status": status
@@ -39,7 +39,7 @@ while True:
 
       # if the pickup status has changed since we last sent a text,
       # send another text
-      if pickupStatus == pickupStatus:
+      if pickupStatus != lastPickupStatus:
         lastPickupStatus = pickupStatus
         client.messages.create(
           to='+14158233568', # Replace with your phone number
