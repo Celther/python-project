@@ -22,8 +22,8 @@ while True:
     data = body.json()
     availableStores = []
     for store in data['body']['stores']:
-      status = store["partsAvailability"]["MN562LL/A"]["storePickupQuote"]
-      if status != "Currently unavailable":
+      status = store["partsAvailability"]["MN5L2LL/A"]["storePickupQuote"]
+      if status = "Currently unavailable":
         availableStores.append({
           "name": store["storeName"],
           "status": status
